@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "staff-portal-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/staffPortal/StaffPortalWebPart.js",
+          "manifest": "./src/webparts/staffPortal/StaffPortalWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "StaffPortalWebPartStrings": "lib/webparts/staffPortal/loc/{locale}.js"
+  }
+}

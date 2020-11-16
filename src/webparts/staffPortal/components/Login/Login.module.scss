@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Lobster&display=swap');
+
+.staffPortal {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    background-image: url("../../../../Images/hall.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+}
+
+.wrapper{
+    width: 62%;
+    margin: 0 auto;
+    margin-top: 8rem;
+}
+
+.loginWrapper{
+    float: left;
+    width: 50%;
+    height: 360px;
+    background: linear-gradient(180deg, rgba(112, 8, 240, 1.0), rgba(58, 3, 56, 0.9));
+}
+
+.loginScreen{
+    float:left;
+    width: 50%;
+    height: 360px;
+    background: white;
+    opacity: 0.8;
+}
+
+.div{
+    margin-left: 30%;
+}
+
+.divv{
+  margin-top: 40%;
+}
+
+.lotus-p{
+    color:white;
+}
+
+.nig-p{
+    color: white;
+    font-size: 10px;
+    margin-top:2%;
+    margin-left: 10%;
+}
+
+.staff-p{
+    font-family: Lobster;
+    color:white;
+    margin-top: 35%;
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.signin-text{
+    color: blue;
+    margin: 5rem 0 0 8rem;
+    font-family: Bad Script;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.formcontrol-container{
+    margin: -3rem 0 0 4rem;
+}

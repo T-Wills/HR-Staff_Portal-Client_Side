@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+
+.sideNav {
+    background: linear-gradient(180deg, rgb(50, 5, 104), rgb(3, 0, 5),);
+    height: 100vh;
+    width:7%;
+    float: left;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.parentCont{
+    float: left;
+    height: 100%;
+    width: 90%;
+    display: block;
+    overflow: auto;
+}
+
+.childCont{
+    box-sizing: border-box;
+    background: red;
+    float: left;
+    padding: 30px;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.secondChildCont{
+    background: blue;
+    box-sizing: border-box;
+    margin: 100px 0 0 60px;
+    width:20%;
+    height:50%;
+    float: left;
+}
+
+.thirdChildCont{
+    background: yellowgreen;
+    width:50%;
+    height:85%;
+    float: left;
+}
