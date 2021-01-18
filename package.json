@@ -20,6 +20,7 @@
     "@microsoft/sp-office-ui-fabric-core": "1.11.0",
     "@microsoft/sp-property-pane": "1.11.0",
     "@microsoft/sp-webpart-base": "1.11.0",
+    "axios": "^0.21.0",
     "canvasjs-react-charts": "^1.0.5",
     "chart.js": "^2.9.4",
     "jquery": "^3.5.1",
@@ -28,7 +29,8 @@
     "react-calendar": "^3.2.0",
     "react-chartjs-2": "^2.11.1",
     "react-dom": "16.8.5",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@types/react": "16.8.8",

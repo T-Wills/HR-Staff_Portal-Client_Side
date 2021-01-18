@@ -13,7 +13,7 @@ const Chart = () => {
                       data: [12, 19, 3, 5, 2, 3],
                       backgroundColor: [
                           "rgba(255, 99, 125)",
-                          "rgba(243, 247, 6)",
+                          "rgba(255, 189, 7)",
                           "rgba(100, 10, 245)",
                           "rgba(6, 168, 20)"
                       ],

@@ -1,0 +1,189 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+}
+
+.sideNav {
+    background: linear-gradient(180deg, rgb(50, 5, 104), rgb(3, 0, 5),);
+   // background-color: rgb(3, 0, 5) ;
+    height: 100vh;
+    width:7%;
+    float: left; 
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding-top: 120px;  
+}
+
+.sideNav ul{
+    width: 100%;
+    padding: 0px;
+    margin: 0;
+}
+
+.sideNav li{
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 8px;
+    background-color: none;
+    display: block;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-bottom: 20px;
+    color: rgb(3, 0, 5);
+}
+
+.sideNav li:hover a{
+    color: rgb(50, 5, 104);
+}
+
+.ms-Button{background:none}
+
+.parentCont{
+    float: left;
+    height: 100%;
+    width: 90%;
+    display: block;
+    overflow: auto;
+}
+
+.childCont{
+    box-sizing: border-box;
+    float: left;
+    padding: 30px;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+
+/* .secondChildCont{
+    background: yellow;
+    box-sizing: border-box;
+    margin: 115px 0 0 60px;
+    width:190px;
+    height:220px;
+    float: left;
+    border: 1px solid teal;
+} */
+.secondChildCont img{
+    margin: 0 auto;
+    width:190px;
+    height:220px;
+    max-width:190px;
+    max-height:220px;
+   
+}
+/* .Cont{
+    background: white;
+    box-sizing: border-box;
+    margin: 120px 0 0 50px;
+    width:20%;
+    height:50%;
+    float: left;
+    border: 1px solid teal;
+    background: yellowgreen;
+} */
+.main{
+width:100%;
+height:auto;
+display: block;
+padding-right: 3rem;
+padding-left: 3rem;
+}
+
+.grid{
+ display: grid; 
+ grid-template-columns: 25% 70%;
+}
+
+.thirdChildCont{
+    padding:20px;
+    margin: 0;
+    width:100%;
+    height:100%;
+    display: block;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .15);
+}
+
+.tblProfile{
+    margin-left: 15px;
+}
+
+.formCont{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 8px;
+}
+.formCont1{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 16px;
+}
+
+.formGroupLeft{
+    width: 47%;
+    height: 2rem;
+    margin-bottom: 17px;
+    margin-right: 6%;
+    float: left;
+}
+.formGroupRight{
+    width: 47%;
+    height: 2rem;
+    margin-bottom: 17px;
+    float: left;
+}
+.formGroupRight input, select{
+    width: 100%;
+    display: inline-block;
+    height: 1.5rem;
+    border-radius: 2px solid grey;
+}
+.formGroupLeft input, select{
+    width: 100%;
+    display: inline-block;
+    height: 1.5rem;
+    border-radius: 2px solid grey;
+}
+.formGroup{
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 17px;
+   
+}
+.formGroup input{
+    width: 100%;
+    display: inline-block;
+    height: 1.5rem;
+    border-radius: 2px solid grey;
+}
+
+#dateOfIssue{
+    width: 50%;
+}
+
+#expirydate{
+    width: 50%;
+}
+
+.infoCont{
+    background: green;
+}
+
+.eCont{
+    background: teal;
+}
+
+.btn{
+    margin-top: 0;
+    width:95%;
+    height:2rem;
+    text-align: right;
+}

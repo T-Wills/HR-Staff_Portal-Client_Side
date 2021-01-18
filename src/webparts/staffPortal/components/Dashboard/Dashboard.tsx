@@ -1,10 +1,20 @@
 import * as React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {useTheme} from "@material-ui/core/styles";
+import {useState, useEffect} from "react";
+import Axios from "axios";
+import styl from "../../components/Profile/Qualifications/Qualifications.module.scss";
+import {Nav} from 'office-ui-fabric-react/lib/Nav';
+import {navLinkGroups, navStyles} from '../../../layout'
+ 
 import styles from "../Dashboard/Dashboard.module.scss";
 import Header from "../Header";
 import Chart from "../Chart/Chart";
 import Calendar from "../Calendar/Calendar";
+import { Link } from "react-router-dom";
+
+
+const Avatar = require("../../../../Images/Group 3.png")
 
 const useStyles = makeStyles( theme => ({
     root: {
@@ -12,42 +22,58 @@ const useStyles = makeStyles( theme => ({
         width: "100%",
     },
 
-    /* secondDiv:{
-        backgroundColor: theme.palette.common.black,
-        width:"25%",
-        height: "18%"
-    },
-
-    thirdDiv: {
-        backgroundColor: theme.palette.common.white,
-        width:"25%",
-        height: "18%"
-    } */
-
 }));
 
 const Dashboard = () => {
     const classes = useStyles();
     const theme = useTheme();
+    const [username, setUsername] = useState([]);
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/user", {
+            headers: {
+                "x-access-token" : localStorage.getItem("token"),
+            },
+        })
+        .then((response)=>{
+            console.log(response.data)
+            setUsername(response.data);
+        });
+    }, [])
 
     return (
-        
-        <div className={classes.root}>
-            <div className={styles.sideNav}>
-                <img src="" alt="" />
-            </div>
-
-            <div className={styles.parentCont}>
-                <Header />
-
+    <div className={styl.container}>
+    <div className={styl.sideNav}>
+        <Nav styles = {navStyles} groups={navLinkGroups}/>
+    </div>
+            
+         <div className={styles.parentCont}>
+               <Header title="Dashboard"/>  
                 <div className={styles.childCont}>
                    <div className={styles.innerChildCont}>
-                       <div className={styles.welcomeCont}></div>
+                       {username.map((data)=>{
+                        return <div key={data.id}>
+                          <div className={styles.welcomeCont}>
+                              <div className={styles.imgcont}>
+                                <img src={String(Avatar)}/>
+                              </div>
+                              <div className={styles.welcomeText}>Hello {data.FirstName} {data.MiddleName}!</div>
+                              <div className={styles.welcomeText1}>Good to see you again.</div>
+                            </div>       
+                        </div>
+                       })}
+                       
 
                        <div className={styles.extra}>
-                           <div className={styles.firstDiv}></div>
-                           <div className={styles.secondDiv}></div>
-                           <div className={styles.thirdDiv}></div>
+                           <div className={styles.firstDiv}>
+                               <p>Manager's appraisal ratings</p>
+                           </div>
+                           <div className={styles.secondDiv}>
+                               <p>My appraisal ratings score</p>
+                           </div>
+                           <div className={styles.thirdDiv}>
+                              <p>HR appraisal ratings</p>
+                           </div>
                        </div>
 
                        <div className={styles.extraCont}>
@@ -78,7 +104,7 @@ const Dashboard = () => {
                    </div>
                 </div>
             </div>
-        </div>
+         </div>
     );
 }
 

@@ -42,15 +42,17 @@ const useStyles = makeStyles( theme =>({
      
 }));
 
-const Header = () => {
+
+const Header = (props) => {
     const classes = useStyles();
 
+    const {title} = props;
     return(
         <AppBar position="static" className={classes.root}>
             <Toolbar>
                 <Grid container
                     alignItems="center">
-                    <Grid item sm className={classes.text}>Dashboard</Grid>
+                    <Grid item sm className={classes.text}>{title}</Grid>
                     <Grid item sm={6}>
                         <InputBase
                             placeholder="Search topics"

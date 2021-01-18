@@ -35,9 +35,35 @@
 }
 
 .welcomeCont{
-    background: linear-gradient(90deg, rgb(79, 221, 240), rgb(225, 250, 252),);
+    background: linear-gradient(90deg, rgb(7, 113, 128), rgb(200, 237, 240),);
     height: 8rem;
     width: 100%;
+}
+
+.welcomeText{
+    color:white;
+    font-size:15px;
+    margin-left: 7rem;
+    padding-top:3.5rem;
+}
+
+.welcomeText1{
+    color:white;
+    font-size:13px;
+    font-style: italic;
+    margin: 0 0 0 7rem;
+    padding:0;
+   
+}
+
+.imgcont{
+    float: left;
+    height: 100%;
+}
+
+img{
+    height: 90%;
+    margin-left: 2rem;
 }
 
 .extra{
@@ -54,20 +80,57 @@
     margin-top: 1rem;
 }
 
+.firstDiv p{
+    color:white;
+    margin-top:5rem;
+    font-size: 13px;
+    margin-left: 1rem;
+}
+
+.firstDiv:hover{
+    transform: scale(1.1);
+    border-radius: 20px;
+}
+
 .secondDiv{
     background-color:#FBC02D;
     width: 33%;
     height: 80%;
     float: left;
     margin-top: 1rem;
+    color:white;
 }
 
+.secondDiv p{
+    color:white;
+    margin-top:5rem;
+    font-size: 13px;
+    margin-left: 1rem;
+}
+
+.secondDiv:hover{
+    transform: scale(1.1);
+    border-radius: 20px;
+}
 .thirdDiv{
-    background-color: rgb(58, 16, 68);
+    background-color: rgb(17, 85, 187);
     width: 33%;
     height: 80%;
     float: left;
     margin-top: 1rem;
+    color:white;
+}
+
+.thirdDiv  p{
+    color:white;
+    margin-top:5rem;
+    font-size: 13px;
+    margin-left: 1rem;
+}
+
+.thirdDiv:hover{
+    transform: scale(1.1);
+    border-radius: 20px;
 }
 
 .extraCont{
@@ -99,29 +162,58 @@
 
 .tipDiv{
     background: teal;
+    padding-top: 20px;
     width: 100%;
     height:10%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     color:white;
     text-align: center;
+    margin: 0;
 }
 
 .nuggetDiv{
+    padding: 25px;
+    /* text-align: justify;
+    text-justify: inter-word; */
     width: 100%;
-    height:40%;
+    height:50%;
+    margin: 0;
+    
 }
 
 .calendarDiv{
     width: 100%;
-    height: 40%;
+    height: 35%;
 }
 
 .ptext{
-    text-align: center;
+    margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .pptext{
     color:white;
     text-align: center;
 }
+
+
+ul {
+    width:100%;
+    padding:0;
+    margin: 0
+  }
+  
+  ul li{
+    width:100%;
+    padding: 0;
+    margin: 0;
+    line-height: 40px;
+    list-style-type: none;
+  }
+  
+  ul li a{
+    text-decoration:none;
+    color:white;
+  }

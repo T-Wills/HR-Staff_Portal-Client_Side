@@ -21,6 +21,13 @@ export default createMuiTheme({
 
         secondary: {
             main: `${SPYellow}`
-        }
+        },
+
+        typography: { 
+                fontFamily: "Roboto",
+                fontWeight: 100,
+                fontSize:"10px",
+        }, 
+
     }
 })
