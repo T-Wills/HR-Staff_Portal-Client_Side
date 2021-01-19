@@ -12,7 +12,7 @@ import styles from "../Qualifications/Qualifications.module.scss";
 import Header from "../../Header";
 import Button from "@material-ui/core/Button";
 import Navbar from "../../Navbar/Navbar";
-import FileInput from "../FileInput/FileInput";
+import FileInput2 from "../FileInput/FileInput2";
 
 const useStyles = makeStyles( theme => ({
     root: {
@@ -54,8 +54,9 @@ const Certifications = () => {
             <div className={styles.parentCont}>
                   <Header title="Profile" />
                 <div className={styles.childCont}>
-                {/* <div className={styles.secondChildCont}></div> */}
-                    <FileInput />
+                    <div className={styles.main}>
+                    <div className={styles.grid}>
+                    <FileInput2 />
                     <div className={styles.thirdChildCont}>
                          <Navbar />
                      
@@ -79,6 +80,8 @@ const Certifications = () => {
                              <Button onClick={addCertification} style={{background: "green", color: "white", fontWeight: "bold", marginTop: "0.5rem", width:"100%"}}>Add Certification</Button>
                         </form> 
                         </div> 
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -10,10 +10,12 @@ import axios from "axios";
 import {Nav} from "office-ui-fabric-react";
 import {navStyles, navLinkGroups} from "../../../layout";
 import {useHistory} from "react-router-dom";
+
 import styl from "../Profile/Qualifications/Qualifications.module.scss";
 import StepperWithoutButtons from "../Stepper/StepperWithoutButtons";
 import styles from "../Profile/Qualifications/Qualifications.module.scss"
 import Header from "../Header";
+import FileInput2 from "../Profile/FileInput/FileInput2";
 
 
 const useStyles = makeStyles( theme => ({
@@ -73,7 +75,9 @@ const StartAppraisal=()=>{
         <div className={styles.parentCont}>
               <Header title="Appraisal" /> 
                 <div className={styles.childCont}>
-
+                <div className={styles.main}>
+                <div className={styles.grid}>
+                    <FileInput2 />
                     <div className={styles.thirdChildCont}>
                         <table style={{marginLeft:"2rem", marginTop:"3rem"}}>
                            <tbody>
@@ -84,8 +88,7 @@ const StartAppraisal=()=>{
                                         <td style={{width:"200px"}}>{val.Department}</td>
                                         <td style={{width:"30%"}}>{val.JobRole}</td>
                                         </div>
-                                   })}
-                                   
+                                   })}  
                                </tr>
                            </tbody>
                         </table>
@@ -115,11 +118,13 @@ const StartAppraisal=()=>{
                                 START
                             </Button>
                        </form> */}
-                       <Link to="/appraisal/0" style={{background:"green", color:"white", width:"30%", marginLeft:"12rem", marginTop: "0.5rem"}}>{<PieChartIcon />} START</Link>
+                       <Link to="/appraisal" style={{background:"green", color:"white", width:"30%", marginLeft:"12rem", marginTop: "0.5rem"}}>{<PieChartIcon />} START</Link>
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     )
 }
 

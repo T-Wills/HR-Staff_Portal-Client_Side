@@ -9,6 +9,7 @@ import {navStyles, navLinkGroups} from "../../../layout";
 import styl from "../../components/Profile/Qualifications/Qualifications.module.scss";
 import styles from "../Profile/Qualifications/Qualifications.module.scss";
 import Header from "../Header";
+import FileInput2 from "../Profile/FileInput/FileInput2";
 
 
 const useStyles = makeStyles( theme => ({
@@ -39,10 +40,9 @@ const LeaveRequest=()=>{
         <div className={styles.parentCont}>
               <Header title="Appraisal Questions" /> 
                 <div className={styles.childCont}>
-                    <div className={styles.secondChildCont}>
-                       <p>camera caption/icon</p>
-                    </div>
-
+                   <div className={styles.main}>
+                   <div className={styles.grid}>
+                     <FileInput2 />
                     <div className={styles.thirdChildCont}>
                         <table style={{marginLeft:"2rem", marginTop:"3rem"}}>
                            <tbody>
@@ -91,6 +91,8 @@ const LeaveRequest=()=>{
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>

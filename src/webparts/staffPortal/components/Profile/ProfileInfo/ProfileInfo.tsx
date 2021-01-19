@@ -10,7 +10,7 @@ import styl from "../Qualifications/Qualifications.module.scss";
 import styles from "../Qualifications/Qualifications.module.scss";
 import Header from "../../Header";
 import Navbar from "../../Navbar/Navbar";
-import FileInput from "../FileInput/FileInput";
+import FileInput2 from "../FileInput/FileInput2";
 
 const useStyles = makeStyles( theme => ({
     root: {
@@ -49,7 +49,7 @@ const ProfileInfo = () =>{
                     {/* <div className={styles.secondChildCont}></div> */}
                     <div className={styles.main}>
                         <div className={styles.grid}>
-                           <FileInput />
+                           <FileInput2 />
                             <div className={styles.thirdChildCont}>
                                <Navbar /> 
                                {userData.map((details)=>{
