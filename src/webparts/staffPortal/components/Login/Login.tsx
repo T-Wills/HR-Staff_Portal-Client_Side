@@ -53,8 +53,8 @@ import {useHistory} from "react-router-dom";
         }).then((response)=>{
             if(response.data.auth){
                 console.log(response.data)
-                localStorage.setItem("token", response.data.token)
-
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("id", response.data.id);
                 history.push("/dashboard/");
             }
             else{setError(response.data.message)}
@@ -78,6 +78,7 @@ import {useHistory} from "react-router-dom";
            
             if(response.data.auth){
                 localStorage.setItem("token", response.data.token)
+                localStorage.setItem("id", response.data.id)
                 history.push("/dashboard/");
             }
             

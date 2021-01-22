@@ -7,7 +7,7 @@ import PieChartIcon from '@material-ui/icons/PieChart';
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
 import axios from "axios";
-import {Nav} from "office-ui-fabric-react";
+import {Nav, values} from "office-ui-fabric-react";
 import {navStyles, navLinkGroups} from "../../../layout";
 import swal from "sweetalert";
 
@@ -35,20 +35,52 @@ const useStyles = makeStyles( theme => ({
 }));
 
 const Appraisal=()=>{
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/user", {
+            headers: {
+                "x-access-token" : localStorage.getItem("token"),
+            },
+        })
+        .then((response)=>{
+            setUser(response.data);
+        });
+
+        axios.get("http://localhost:3001/options").then((res)=>{
+            setOption(res.data);
+            console.log(res.data)
+        })
+    }, [])
+
     const classes = useStyles();
     const theme = useTheme();
 
     const [quest, setQuest] = useState([]);
     const [sn, setSn] = useState('0');
-    const [option, setOption] = useState("")
-   /*  const [Username, setUsername] = useState("") */
+    const [option, setOption] = useState([]);
+    const [answer, setAnswer] = useState("");
+    const [value, setValue] = useState("");
     const [user, setUser] = useState([]);
     const [showQ, setshowQ] = useState(true);
     
+    const submit = event => {
+        event.preventDefault();
+        
+            axios.post(`http://localhost:3001/nextquestions/`, {
+            sn: sn,
+        })
+        .then((res)=>{
+            setQuest(res.data);
+            setSn(res.data[0].SN);
+           // console.log(res.data);
+            setshowQ(false)
+        }); 
+        
+    } 
 
     const handleNext = event => {
         event.preventDefault();
-        if(!option){
+        if(!value){
             swal({
                 title: "Note",
                 text: "No option selected",
@@ -57,44 +89,25 @@ const Appraisal=()=>{
             })
         }
         else{
+            axios.post("http://localhost:3001/option", {
+            user: localStorage.getItem("id"),
+            section: 'A',
+            quarter: 'First Quarter',
+            questionN: sn,
+            value: value,  
+            });
+
             axios.post(`http://localhost:3001/nextquestions/`, {
             sn: sn,
             } )
-        .then((res)=>{
+            .then((res)=>{
             setQuest(res.data);
             setSn(res.data[0].SN);
             console.log(res.data);
-            setOption("");
-
         }); 
+        setValue('');
         }
     }  
-
-    const submit = event => {
-        event.preventDefault();
-        
-            axios.post(`http://localhost:3001/nextquestions/`, {
-            sn: sn,
-            } )
-        .then((res)=>{
-            setQuest(res.data);
-            setSn(res.data[0].SN);
-            console.log(res.data);
-            setshowQ(false)
-        }); 
-        
-    }  
-    useEffect(() => {
-        axios.get("http://localhost:3001/user", {
-            headers: {
-                "x-access-token" : localStorage.getItem("token"),
-            },
-        })
-        .then((response)=>{
-            console.log(response.data)
-            setUser(response.data);
-        });
-    }, [])
 
     const handlePrevious = event => {
         event.preventDefault();
@@ -108,6 +121,17 @@ const Appraisal=()=>{
         
        });
     } 
+
+    // const handleSubmit = event => {
+    //     event.preventDefault();
+    //     axios.post("http://localhost:3001/option", {
+    //         user: localStorage.getItem("id"),
+    //         section: 'A',
+    //         quarter: 'First Quarter',
+    //         questionN: sn,
+    //         value: value,  
+    //     })
+    // }
 
     return(
     <div className={styl.container}>
@@ -160,15 +184,11 @@ const Appraisal=()=>{
                         null
                         :
                         <div style={{marginLeft:"2rem", fontSize:"12px"}}>
-                            <input type="radio" value="5" name="group2" onChange={(e)=>{setOption(e.target.value)}} /> Outstanding
-                            <br/>
-                            <input type="radio" value="4" name="group2" onChange={(e)=>{setOption(e.target.value)}} /> Superior
-                            <br/>
-                            <input type="radio" value="3" name="group2" onChange={(e)=>{setOption(e.target.value)}} /> Fully Acceptable
-                            <br/>
-                            <input type="radio" value="2" name="group2" onChange={(e)=>{setOption(e.target.value)}} /> Conditional
-                            <br/>
-                            <input type="radio" value="1" name="group2" onChange={(e)=>{setOption(e.target.value)}} /> Unsatisfactory
+                            {option.map((val)=>{
+                                return <div>
+                                <input name= "option" type="radio" key={val.value} value={val.value} onChange={(e) => {setValue(e.target.value);}}/> {val.answer}
+                                </div>
+                            })}
                         </div>
                         }
                         
@@ -186,6 +206,17 @@ const Appraisal=()=>{
                             </Button>
                             :
                             <>
+                            {(sn == "1") ?
+                            <Button 
+                            variant="contained"
+                            style={{background:"green", color:"white", fontSize:"10px", width:"17%", marginLeft:"1rem"}}
+                            startIcon={<PieChartIcon />}
+                            onClick= {handleNext}
+                            >
+                            Next 
+                            </Button> 
+                            :
+                            <>
                             <Button
                             variant="contained"
                             style={{background:"green", color:"white", fontSize:"10px", width:"19%"}}
@@ -194,20 +225,20 @@ const Appraisal=()=>{
                             >
                             Previous
                             </Button>
+
                             <Button 
                             variant="contained"
                             style={{background:"green", color:"white", fontSize:"10px", width:"17%", marginLeft:"1rem"}}
                             startIcon={<PieChartIcon />}
                             onClick= {handleNext}
                             >
-                                Next 
+                            Next 
                             </Button>
                             </>
-                            }
+                             }
                             
-
-                            
-                            
+                            </>
+                            }  
                         </div>
                     </form>
                 </div>

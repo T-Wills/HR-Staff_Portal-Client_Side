@@ -16,21 +16,21 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function getSteps() {
-  return ['Outstanding', 'Superior', 'Fully Acceptable', 'Conditional', 'Unsatisfactory'];
+  return ['Unsatisfactory', 'Conditional', 'Fully Acceptable', 'Superior', 'Outstanding'];
 }
 
 function getStepContent(stepIndex: number) {
   switch (stepIndex) {
     case 0:
-      return 'Outstanding';
+      return 'Unsatisfactory';
     case 1:
-      return 'Superior';
+      return 'Conditional';
     case 2:
       return 'Fully Acceptable';
     case 3:
-       return 'Conditional';
+       return 'Superior';
     case 4:
-      return 'Unsatisfactory';
+      return 'Outstanding';
     default:
       return 'Unknown stepIndex';
   }
