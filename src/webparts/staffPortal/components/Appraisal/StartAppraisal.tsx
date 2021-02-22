@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import {Nav} from "office-ui-fabric-react";
-import {navStyles, navLinkGroups} from "../../../layout";
+import Navbar from "../../../layout";
 import {useHistory} from "react-router-dom";
 
 import styl from "../Profile/Qualifications/Qualifications.module.scss";
@@ -70,7 +70,7 @@ const StartAppraisal=()=>{
     return(
         <div className={styl.container}>
         <div className={styl.sideNav}>
-            <Nav styles = {navStyles} groups={navLinkGroups}/>
+            <Navbar />
         </div>
         <div className={styles.parentCont}>
               <Header title="Appraisal" /> 

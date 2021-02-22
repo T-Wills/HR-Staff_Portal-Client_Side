@@ -1,0 +1,46 @@
+*{box-sizing: border-box;}
+.navbar{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(50, 5, 104), rgb(3, 0, 5),);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-align: center;
+}
+.nlogo{
+    width: 100%;
+    height: 5rem;
+    text-align: center;
+}
+.nlogo img{
+    width: 30px;
+    height:30px;  
+}
+.navLinks{
+    width: 100%;
+    height: auto;
+    padding-left: .5rem;
+    padding-top: 5rem;
+    
+    
+}
+.navLinks ul{
+    width: 100%;
+    padding: 0;
+    margin: 0
+}
+.navLinks ul li{
+    width: 100%;
+    padding: .8rem;
+    margin: 0;
+    line-height: 2rem;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.active{
+    background: white;
+    color: #640ad2;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}

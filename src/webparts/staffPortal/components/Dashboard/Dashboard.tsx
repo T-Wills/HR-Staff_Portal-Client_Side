@@ -4,14 +4,16 @@ import {useTheme} from "@material-ui/core/styles";
 import {useState, useEffect} from "react";
 import Axios from "axios";
 import styl from "../../components/Profile/Qualifications/Qualifications.module.scss";
-import {Nav} from 'office-ui-fabric-react/lib/Nav';
-import {navLinkGroups, navStyles} from '../../../layout'
+
+// import {navLinkGroups, navStyles} from '../../../layout'
  
 import styles from "../Dashboard/Dashboard.module.scss";
 import Header from "../Header";
 import Chart from "../Chart/Chart";
 import Calendar from "../Calendar/Calendar";
 import { Link } from "react-router-dom";
+import Navbar from "../../../layout";
+
 
 
 const Avatar = require("../../../../Images/Group 3.png")
@@ -28,6 +30,10 @@ const Dashboard = () => {
     const classes = useStyles();
     const theme = useTheme();
     const [username, setUsername] = useState([]);
+    const [score, setScore] = useState([]);
+    const [kpiscore, setkpiScore] = useState([]);
+    const [content, setContent] = useState("");
+    const [title, setTitle] = useState("");
 
     useEffect(() => {
         Axios.get("http://localhost:3001/user", {
@@ -36,15 +42,33 @@ const Dashboard = () => {
             },
         })
         .then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             setUsername(response.data);
         });
+
+        Axios.get("http://localhost:3001/getScore", {
+            headers: {
+                "id" : localStorage.getItem("id"),
+            },
+        })
+        .then((response)=>{
+            setScore(response.data)
+            setkpiScore([response.data[0].staff, response.data[0].hr, response.data[0].overall])
+            console.log(response.data)
+        });
+
+        Axios.get("http://localhost:3001/dailynugget")
+        .then((response)=>{
+            setTitle(response.data[0].heading)
+            setContent(response.data[0].content)
+        })
     }, [])
+
 
     return (
     <div className={styl.container}>
     <div className={styl.sideNav}>
-        <Nav styles = {navStyles} groups={navLinkGroups}/>
+       <Navbar dashboard="active" />
     </div>
             
          <div className={styles.parentCont}>
@@ -62,39 +86,42 @@ const Dashboard = () => {
                             </div>       
                         </div>
                        })}
-                       
-
-                       <div className={styles.extra}>
-                           <div className={styles.firstDiv}>
-                               <p>Manager's appraisal ratings</p>
-                           </div>
-                           <div className={styles.secondDiv}>
-                               <p>My appraisal ratings score</p>
-                           </div>
-                           <div className={styles.thirdDiv}>
-                              <p>HR appraisal ratings</p>
-                           </div>
-                       </div>
+                 {/*    <div  className={styles.extra}> */}
+                        {score.map((scores)=>{ 
+                              return <div key={scores.sn} className={styles.extra}>
+                               <div className={styles.firstDiv}>
+                               <p>{scores.staff}</p>
+                                   <p>My appraisal ratings score</p>
+                               </div>
+                               <div className={styles.secondDiv}>
+                               <p>{scores.hr}</p>
+                                   <p>HR appraisal ratings</p>
+                               </div>
+                               <div className={styles.thirdDiv}>
+                               <p>{scores.overall}</p>
+                                  <p>Overall appraisal ratings</p>
+                               </div> 
+                               </div>
+                          })    
+                        }
+                {/*     </div> */}
 
                        <div className={styles.extraCont}>
-                          <Chart />
+                          <Chart 
+                          dataValue = {kpiscore} 
+                          />
                        </div>
                    </div>
 
                    <div className={styles.secondChildCont}>
                        <div className={styles.calendarCont}>
                            <div className={styles.tipDiv}>
-                               {/* <p className={styles.pptext}> */}Monday Nugget{/* </p> */}
+                               {/* <p className={styles.pptext}> */}Daily Nugget{/* </p> */}
                            </div>
                            <div className={styles.nuggetDiv}>
                                 <p className={styles.ptext}>
-                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                   Aliquam tincidunt tristique nunc, id pellentesque lacus 
-                                   hendrerit aliquet. Aliquam id felis dictum, porta eros 
-                                   accumsan, efficitur metus. Fusce sagittis faucibus lorem, 
-                                   a porta nulla semper quis. Nullam enim mi, elementum eget 
-                                   felis sit amet, venenatis lacinia leo. Mauris sollicitudin 
-                                   diam sed elit pellentesque dignissim.
+                                   <div style={{fontWeight: 'bolder'}}>{title}</div>
+                                   <div>{content}</div>                                   
                                 </p>
                            </div>
                            <div className={styles.calendarDiv}>

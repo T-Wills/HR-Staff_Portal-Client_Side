@@ -49,7 +49,7 @@ export default class StaffPortal extends React.Component<IStaffPortalProps, {}> 
           <Route path="/start" component={StartAppraisal} />
           <Route path="/appraisal" component={Appraisal} />
           <Route path="/get/questions/:sn" component={Appraisal} />
-          <Route path="/request" component={LeaveRequest} />
+         {/*  <Route path="/request" component={LeaveRequest} /> */}
           
         </HashRouter>
       </Stack> 

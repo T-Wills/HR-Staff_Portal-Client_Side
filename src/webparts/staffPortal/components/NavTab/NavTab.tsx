@@ -5,7 +5,7 @@ import {useTheme} from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {Link} from "react-router-dom";
-import styles from "../Navbar/Navbar.module.scss";
+import styles from "./NavTab.module.scss";
 
 const useStyles = makeStyles( theme => ({
    tabContainer:{
@@ -20,7 +20,7 @@ const useStyles = makeStyles( theme => ({
 
 }));
 
-const Navbar = () => {
+const NavTab = () => {
 
     const classes = useStyles();
     const theme = useTheme();
@@ -45,4 +45,4 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+export default NavTab;

@@ -3,12 +3,10 @@
 }
 
 .sideNav {
-    background: linear-gradient(180deg, rgb(50, 5, 104), rgb(3, 0, 5),);
     height: 100vh;
     width:7%;
     float: left;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    padding: 0;
 }
 
 .parentCont{
@@ -82,7 +80,7 @@ img{
 
 .firstDiv p{
     color:white;
-    margin-top:5rem;
+    margin-top:1rem;
     font-size: 13px;
     margin-left: 1rem;
 }
@@ -103,7 +101,7 @@ img{
 
 .secondDiv p{
     color:white;
-    margin-top:5rem;
+    margin-top:1rem;
     font-size: 13px;
     margin-left: 1rem;
 }
@@ -123,7 +121,7 @@ img{
 
 .thirdDiv  p{
     color:white;
-    margin-top:5rem;
+    margin-top:1rem;
     font-size: 13px;
     margin-left: 1rem;
 }

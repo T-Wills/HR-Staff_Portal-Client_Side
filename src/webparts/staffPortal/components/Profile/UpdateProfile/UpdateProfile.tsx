@@ -5,13 +5,13 @@ import {useTheme} from "@material-ui/core/styles";
 import Axios from "axios";
 import swal from "sweetalert";
 import {Nav} from "office-ui-fabric-react";
-import {navStyles, navLinkGroups} from "../../../../layout";
+import Navbar from "../../../../layout";
 
 import styl from "../Qualifications/Qualifications.module.scss";
 import styles from "../Qualifications/Qualifications.module.scss";
 import Header from "../../Header";
 import Button from "@material-ui/core/Button";
-import Navbar from "../../Navbar/Navbar";
+import NavTab from "../../NavTab/NavTab";
 import FileInput from "../FileInput/FileInput";
 
 const useStyles = makeStyles( theme => ({
@@ -40,10 +40,9 @@ const UpdateProfile = () => {
     const [EmergencyContact_HomeAddress, setEmergencyContact_HomeAddress] = useState("");
     const [IMG, setIMG] = useState({});
     
-    const StaffID = 10001;
     const submitProfile = (e) => {
         Axios.put("http://localhost:3001/employee/update", {
-            StaffID : StaffID,
+            id: localStorage.getItem("id"),
             DateOfBirth: DateOfBirth, 
             MobileNumber: MobileNumber,  
             CUGNumber: CUGNumber,
@@ -56,7 +55,6 @@ const UpdateProfile = () => {
             EmergencyContact_HomeAddress: EmergencyContact_HomeAddress,
            /*  image: IMG, */
         }); 
-    
         e.preventDefault();
         swal({
             title: "Saved",
@@ -82,7 +80,7 @@ const UpdateProfile = () => {
     return(
     <div className={styl.container}>
         <div className={styl.sideNav}>
-            <Nav styles = {navStyles} groups={navLinkGroups}/>
+            <Navbar info="active" />
         </div>
 
         <div className={styles.parentCont}>
@@ -92,7 +90,7 @@ const UpdateProfile = () => {
                     <div className={styles.grid}> 
                         <FileInput />
                         <div className={styles.thirdChildCont}>
-                            <Navbar />
+                            <NavTab />
 
                             <div className={styles.formCont}>
                                 <div className={styles.tblProfile}>
@@ -123,7 +121,8 @@ const UpdateProfile = () => {
 
                                     <div className={styles.formGroupLeft}>
                                     <label htmlFor="maritalStatus">Marital Status</label>
-                                    <select name="MaritalStatus" id="MaritalStatus" onChange={(e)=>{setMaritalStatus(e.target.value)}}>
+                                    <select name="MaritalStatus" value={MaritalStatus} id="MaritalStatus" onChange={(e)=>{setMaritalStatus(e.target.value)}}>
+                                    
                                         <option value="Single">Single</option>
                                         <option value="Married">Married</option>
                                     </select>

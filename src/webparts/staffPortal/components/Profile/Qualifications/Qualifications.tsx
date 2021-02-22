@@ -5,14 +5,14 @@ import {useTheme} from "@material-ui/core/styles";
 import Axios from "axios";
 import swal from "sweetalert";
 import {Nav} from "office-ui-fabric-react";
-import {navStyles, navLinkGroups} from "../../../../layout";
+import Navbar from "../../../../layout";
 
 import styl from "../Qualifications/Qualifications.module.scss";
 import styles from "../Qualifications/Qualifications.module.scss";
 import Header from "../../Header";
 import Button from "@material-ui/core/Button";
-import Navbar from "../../Navbar/Navbar";
-import { Link } from "react-router-dom";
+import NavTab from "../../NavTab/NavTab";
+//import { Link } from "../../NavTab/node_modules/react-router-dom";
 import FileInput2 from "../FileInput/FileInput2";
 
 const useStyles = makeStyles( theme => ({
@@ -52,7 +52,7 @@ const Qualifications = () => {
     return(
         <div className={styl.container}>
             <div className={styl.sideNav}>
-              <Nav styles = {navStyles} groups={navLinkGroups}/>
+              <Navbar info="active" />
             </div>
             <div className={styles.parentCont}>
                   <Header title="Profile" />
@@ -61,7 +61,7 @@ const Qualifications = () => {
                     <div className={styles.grid}>
                     <FileInput2 />
                     <div className={styles.thirdChildCont}>
-                         <Navbar />
+                         <NavTab />
                          <div className={styles.tblProfile}>
                         <div className={styles.formCont}>
                            <form>

@@ -7,40 +7,24 @@ import styles from "./FileInput.module.scss";
 import Button from "@material-ui/core/Button";
 
 const FileInput2 = () =>{
-
   const [IMG, setIMG] = useState({});
-
-  const StaffID = 10001;
-  const uploadPicture = (e) => {
-    Axios.post("http://localhost:3001/imageupload", {
-        StaffID : StaffID,
-        image: IMG
-    }); 
-    console.log(IMG)
-    e.preventDefault();
-    swal({
-        title:"Saved",
-        text: "Image uploaded",
-        icon: "success",
-        timer: 2000,
+  const [UserImage, setUserImage] = useState("")
+  useEffect(() => {
+    Axios.get("http://localhost:3001/getImage", {
+        headers: {
+          "id" : localStorage.getItem("id"),
+        },
+        
     })
-  }; 
-
-  const uploadImage = (e)=>{
-    const reader = new FileReader();
-    reader.onload = ()=>{
-        if(reader.readyState === 2){
-           setIMG(JSON.stringify(reader.result))
-        }
-    }
-    reader.readAsDataURL(e.target.files[0])
-  }
-
+     .then((response)=>{
+        setUserImage(response.data[0].Passport);
+     })
+}, [])
   return(
     <>
       <div className={styles.card}>
       <div className={styles.secondChildCont}>
-        <img src={String(IMG)}/> 
+        <img src={String(UserImage)}/> 
       </div>
       
       </div>

@@ -4,12 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import {useTheme} from "@material-ui/core/styles";
 import Axios from "axios";
 import {Nav} from "office-ui-fabric-react";
-import {navStyles, navLinkGroups} from "../../../../layout";
+import Navbar from "../../../../layout";
 
 import styl from "../Qualifications/Qualifications.module.scss";
 import styles from "../Qualifications/Qualifications.module.scss";
 import Header from "../../Header";
-import Navbar from "../../Navbar/Navbar";
+import NavTab from "../../NavTab/NavTab";
 import FileInput2 from "../FileInput/FileInput2";
 
 const useStyles = makeStyles( theme => ({
@@ -41,7 +41,7 @@ const ProfileInfo = () =>{
         return(
         <div className={styl.container}>
             <div className={styl.sideNav}>
-                <Nav styles = {navStyles} groups={navLinkGroups}/>
+                <Navbar info="active" />
             </div>
             <div className={styles.parentCont}>
                 <Header title="Profile" />  
@@ -51,7 +51,7 @@ const ProfileInfo = () =>{
                         <div className={styles.grid}>
                            <FileInput2 />
                             <div className={styles.thirdChildCont}>
-                               <Navbar /> 
+                                <NavTab />
                                {userData.map((details)=>{
                                return <div key={details.StaffID}>
                                <table style={{marginLeft:"1rem"}}>

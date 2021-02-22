@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {useTheme} from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import {Nav} from "office-ui-fabric-react";
-import {navStyles, navLinkGroups} from "../../../layout";
+import Navbar from "../../../layout";
 
 import styl from "../../components/Profile/Qualifications/Qualifications.module.scss";
 import styles from "../Profile/Qualifications/Qualifications.module.scss";
@@ -35,7 +35,7 @@ const LeaveRequest=()=>{
     return(
         <div className={styl.container}>
         <div className={styl.sideNav}>
-            <Nav styles = {navStyles} groups={navLinkGroups}/>
+            <Navbar />
         </div>
         <div className={styles.parentCont}>
               <Header title="Appraisal Questions" /> 
